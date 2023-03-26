@@ -81,7 +81,7 @@ public class AddressBook {
         System.out.println(contact);
     }
 
-    public static void main(String[] args) {
+     public void callAddressBook(){
         AddressBook addressBook = new AddressBook();
         Scanner sc = new Scanner(System.in);
         boolean b = true;
