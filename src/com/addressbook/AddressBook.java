@@ -1,7 +1,6 @@
 package com.addressbook;
 
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -35,9 +34,62 @@ public class AddressBook {
         }
         System.out.println(contact);
     }
+    public void editDetails() { // Method to edit details in addressBook;
+        System.out.println("enter first name whose contact you want to edit");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        for (ContactPerson contactPerson : contact) {
+            if (input.equals(contactPerson.getFirstName())) {
+                System.out.println("Enter First name to update");
+                contactPerson.setFirstName(sc.next());
+                System.out.println("Enter Last name to  update");
+                contactPerson.setLastName(sc.next());
+                System.out.println("Enter Address to  update");
+                contactPerson.setAddress(sc.next());
+                System.out.println("Enter City to update");
+                contactPerson.setCity(sc.next());
+                System.out.println("Enter State to update");
+                contactPerson.setState(sc.next());
+                System.out.println("Enter Zip to update");
+                contactPerson.setZip(sc.nextInt());
+                System.out.println("Enter Phone number to update");
+                contactPerson.setPhoneNumber(sc.nextLong());
+                System.out.println("Enter Email to update");
+                contactPerson.setEmail(sc.next());
+            } else {
+                System.out.println("Enter contact not available");
+            }
+        }
+        System.out.println(contact);
+    }
+    public void printContactDetail() { //Method to printing details in addressBook;
+        System.out.println(contact);
+    }
 
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
-        addressBook.addContact();
+        Scanner sc = new Scanner(System.in);
+        boolean b = true;
+        while (b){
+            System.out.println("-*-*-*-*-Welcome to addressBook-*-*-*-*-");
+            System.out.println("Enter 1 to add contact");
+            System.out.println("Enter 2 to edit contact");
+            System.out.println("Enter 3 to print contact");
+            System.out.println("Enter 4 to exit");
+            int button = sc.nextInt();
+            switch (button){
+                case 1:
+                    addressBook.addContact();
+                    break;
+                case 2:
+                    addressBook.editDetails();
+                    break;
+                case 3:
+                    addressBook.printContactDetail();
+                    break;
+                default:
+                    b = false;
+            }
+        }
     }
 }
