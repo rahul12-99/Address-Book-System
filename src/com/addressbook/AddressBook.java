@@ -1,6 +1,7 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -15,6 +16,12 @@ public class AddressBook {
             ContactPerson contactPerson = new ContactPerson();
             System.out.println("Enter First name of " + i + " " + "contact");
             contactPerson.setFirstName(sc.next());
+            Optional<ContactPerson> ref_Var = contact.stream()
+                    .filter(enteredName -> enteredName.getFirstName().equals(contactPerson.getFirstName())).findAny();
+            if(ref_Var.isPresent()){
+                System.out.println("Name already exist");
+                return;
+            }
             System.out.println("Enter Last name of " + i + " " + "contact");
             contactPerson.setLastName(sc.next());
             System.out.println("Enter Address of " + i + " " + "contact");
