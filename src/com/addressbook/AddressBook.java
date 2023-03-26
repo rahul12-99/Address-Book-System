@@ -62,6 +62,21 @@ public class AddressBook {
         }
         System.out.println(contact);
     }
+    public void deleteContact() { // Method to delete contact using firstName;
+        System.out.println("Enter first name whose contact you want delete");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        for (int i = 0; i < contact.size(); i++) {
+            if (input.equals(contact.get(i).getFirstName())) {
+                contact.remove(i);
+                break;
+            } else {
+                System.out.println("enter details not available");
+            }
+
+        }
+        System.out.println(contact);
+    }
     public void printContactDetail() { //Method to printing details in addressBook;
         System.out.println(contact);
     }
@@ -75,7 +90,8 @@ public class AddressBook {
             System.out.println("Enter 1 to add contact");
             System.out.println("Enter 2 to edit contact");
             System.out.println("Enter 3 to print contact");
-            System.out.println("Enter 4 to exit");
+            System.out.println("Enter 4 to delete contact");
+            System.out.println("Enter 5 to exit");
             int button = sc.nextInt();
             switch (button){
                 case 1:
@@ -86,6 +102,9 @@ public class AddressBook {
                     break;
                 case 3:
                     addressBook.printContactDetail();
+                    break;
+                case 4:
+                    addressBook.deleteContact();
                     break;
                 default:
                     b = false;
