@@ -71,7 +71,7 @@ public class AddressBook {
                 contact.remove(i);
                 break;
             } else {
-                System.out.println("enter details not available");
+                System.out.println("Enter details not available");
             }
 
         }
